@@ -1,0 +1,19 @@
+let mapleader = ","
+let g:mapleader = ","
+map <silent> <leader><cr> :noh<cr>
+
+set so=7
+set hlsearch
+set ignorecase
+set smartcase
+set incsearch
+
+inoremap jj <Esc> 
+inoremap <C-,> <Esc>A;
+
+nnoremap ö [
+nnoremap ä ]
+nnoremap Ö {
+nnoremap Ä }
+nnoremap ß /
+
