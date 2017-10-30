@@ -88,3 +88,8 @@ alias l='ls -lhF'
 function cl {
   builtin cd "$@" && ls -F
 }
+
+# Editor environment variables
+export EDITOR="vim"
+export USE_EDITOR=$EDITOR
+export VISUAL=$EDITOR
