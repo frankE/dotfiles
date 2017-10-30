@@ -406,3 +406,7 @@ nnoremap ß /
 inoremap jj <Esc>
 
 set number relativenumber
+if has('mouse')
+    set mouse=a
+endif
+
