@@ -154,7 +154,7 @@ if $TERM == 'xterm-256color'
 endif
 
 try
-    colorscheme desert
+    colorscheme hybrid
 catch
 endtry
 
@@ -365,10 +365,6 @@ function! <SID>BufcloseCloseIt()
      bnext
    endif
 
-   if bufnr("%") == l:currentBufNum
-     new
-   endif
-
    if buflisted(l:currentBufNum)
      execute("bdelete! ".l:currentBufNum)
    endif
@@ -404,4 +400,5 @@ nnoremap Ä }
 nnoremap ß /
 inoremap jj <Esc>
 
-set number
+set number relativenumber
+

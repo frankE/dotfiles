@@ -7,6 +7,7 @@ set hlsearch
 set ignorecase
 set smartcase
 set incsearch
+set number relativenumber
 
 inoremap jj <Esc> 
 inoremap <C-,> <Esc>A;
@@ -16,4 +17,3 @@ nnoremap ä ]
 nnoremap Ö {
 nnoremap Ä }
 nnoremap ß /
-
