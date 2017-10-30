@@ -4,3 +4,6 @@
 [submodule ".vim/pack/plugin/start/vim-archery"]
 	path = home/.vim/pack/plugin/start/vim-archery
 	url = https://github.com/Badacadabra/vim-archery.git
+[submodule "home/oh-my-zsh"]
+	path = home/.oh-my-zsh
+	url = https://github.com/robbyrussell/oh-my-zsh.git
