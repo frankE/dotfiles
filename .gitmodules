@@ -1,0 +1,6 @@
+[submodule ".vim/pack/plugin/start/vim-airline"]
+	path = .vim/pack/plugin/start/vim-airline
+	url = https://github.com/vim-airline/vim-airline
+[submodule ".vim/pack/plugin/start/vim-archery"]
+	path = .vim/pack/plugin/start/vim-archery
+	url = https://github.com/Badacadabra/vim-archery.git

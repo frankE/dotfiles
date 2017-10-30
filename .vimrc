@@ -153,8 +153,13 @@ if $TERM == 'xterm-256color'
     set t_Co=256
 endif
 
+" Enable true color in supporting terminals
+if has('termguicolors') 
+    set termguicolors
+endif
+
 try
-    colorscheme hybrid
+    colorscheme archery 
 catch
 endtry
 
@@ -275,10 +280,10 @@ au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g
 " => Status line
 """"""""""""""""""""""""""""""
 " Always show the status line
-set laststatus=2
+" set laststatus=2
 
 " Format the status line
-set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l\ \ Column:\ %c
+" set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l\ \ Column:\ %c
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -401,4 +406,3 @@ nnoremap ß /
 inoremap jj <Esc>
 
 set number relativenumber
-
