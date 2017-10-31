@@ -434,3 +434,5 @@ let php_folding=1
 " Autocompletion
 autocmd FileType php set omnifunc=phpcomplete#CompletePHP
 
+" NERDTree
+map <C-n> :NERDTreeToggle<CR>
