@@ -430,3 +430,7 @@ autocmd BufWritePre * %s/\s\+$//e
 set foldmethod=syntax
 set foldnestmax=2
 let php_folding=1
+
+" Autocompletion
+autocmd FileType php set omnifunc=phpcomplete#CompletePHP
+
