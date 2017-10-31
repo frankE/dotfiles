@@ -47,6 +47,12 @@ set nocompatible
 " Sets how many lines of history VIM has to remember
 set history=500
 
+" Load pathogen on older vim
+if version < 800
+    source ~/.vim/vim-pathogen/autoload/pathogen.vim
+    execute pathogen#infect('pack/{}/start/{}')
+endif
+
 " Enable filetype plugins
 filetype plugin on
 filetype indent on
@@ -398,22 +404,29 @@ function! VisualSelection(direction, extra_filter) range
     let @" = l:saved_reg
 endfunction
 
+" Some Keyboard mappings
 nnoremap ö [
 nnoremap ä ]
 nnoremap Ö {
 nnoremap Ä }
 nnoremap ß /
 inoremap jj <Esc>
-
-set number relativenumber
-if has('mouse')
-    set mouse=a
-endif
-
 " Better indentation
 vnoremap < <gv
 vnoremap > >gv
 
+" Set linenumebers to relative and highlight the current lineno
+set number relativenumber
+
+" Enable mouse
+if has('mouse')
+    set mouse=a
+endif
+
 " Remove trailing whitespaces
 autocmd BufWritePre * %s/\s\+$//e
 
+" Folding
+set foldmethod=syntax
+set foldnestmax=2
+let php_folding=1
