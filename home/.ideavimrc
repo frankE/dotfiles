@@ -9,7 +9,7 @@ set smartcase
 set incsearch
 set number relativenumber
 
-inoremap jj <Esc> 
+inoremap jj <Esc>
 inoremap <C-,> <Esc>A;
 
 nnoremap ö [
@@ -17,3 +17,10 @@ nnoremap ä ]
 nnoremap Ö {
 nnoremap Ä }
 nnoremap ß /
+
+" Better indentation
+vnoremap < <gv
+vnoremap > >gv
+
+" Remove trailing whitespaces
+autocmd BufWritePre * %s/\s\+$//e
