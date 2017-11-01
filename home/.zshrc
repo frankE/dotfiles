@@ -51,7 +51,7 @@ ZSH_THEME="af-magic"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git, tmux, vi-mode)
+plugins=(git, vi-mode)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -85,6 +85,8 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias ll='ls -lahF'
 alias l='ls -lhF'
+
+# change directory and list contents afterwards
 function cl {
   builtin cd "$@" && ls -F
 }
@@ -93,3 +95,17 @@ function cl {
 export EDITOR="vim"
 export USE_EDITOR=$EDITOR
 export VISUAL=$EDITOR
+# function zle-line-init zle-keymap-select {
+#     RPS1="${${KEYMAP/vicmd/-- NORMAL --}/(main|viins)/-- INSERT --}"
+#     RPS2=$RPS1
+#     zle reset-prompt
+# }
+#
+# zle -N zle-line-init
+# zle -N zle-keymap-select
+
+# vi-mode indicator. Needs the vi-mode plugin from oh my zsh
+RPS1='$(vi_mode_prompt_info)'$RPROMPT
+
+# Enter vi mode with jj
+bindkey -M viins 'jj' vi-cmd-mode
