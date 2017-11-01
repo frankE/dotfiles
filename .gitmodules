@@ -13,3 +13,6 @@
 [submodule "home/.vim/pack/plugin/start/nerdtree"]
 	path = home/.vim/pack/plugin/start/nerdtree
 	url = https://github.com/scrooloose/nerdtree.git
+[submodule "home/.vim/pack/plugin/start/VimCompletesMe"]
+	path = home/.vim/pack/plugin/start/VimCompletesMe
+	url = git://github.com/ajh17/VimCompletesMe.git

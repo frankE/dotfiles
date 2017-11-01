@@ -433,6 +433,8 @@ let php_folding=1
 
 " Autocompletion
 autocmd FileType php set omnifunc=phpcomplete#CompletePHP
-
+let g:phpcomplete_enhance_jump_to_definition=1
 " NERDTree
 map <C-i> :NERDTreeToggle<CR>
+inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+
