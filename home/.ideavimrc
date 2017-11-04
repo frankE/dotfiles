@@ -10,7 +10,8 @@ set incsearch
 set number relativenumber
 
 inoremap jj <Esc>
-inoremap <C-,> <Esc>A;
+inoremap <C-,> <Esc>A;<Enter>
+inoremap <C-.> <Esc>A<Space>{<Enter>
 
 nnoremap ö [
 nnoremap ä ]
