@@ -160,7 +160,7 @@ if $TERM == 'xterm-256color'
 endif
 
 " Enable true color in supporting terminals
-if has('termguicolors') && $COLORTERM != ""
+if has('termguicolors')
     set termguicolors
 endif
 
