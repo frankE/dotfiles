@@ -409,8 +409,13 @@ nnoremap ö [
 nnoremap ä ]
 nnoremap Ö {
 nnoremap Ä }
+nnoremap <C-ö> <C-[>
+nnoremap <C-ä> <C-]>
+inoremap <C-ö> <C-[>
+inoremap <C-ä> ^]
 nnoremap ß /
 inoremap jj <Esc>
+
 " Better indentation
 vnoremap < <gv
 vnoremap > >gv
@@ -443,3 +448,5 @@ map <C-i> :NERDTreeToggle<CR>
 " VimCompletesMe
 inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
+" Search for files in subdirs
+set path+=**

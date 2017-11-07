@@ -18,6 +18,7 @@ nnoremap ä ]
 nnoremap Ö {
 nnoremap Ä }
 nnoremap ß /
+nnoremap <leader>c<space> :action CommentByLineComment<CR>
 
 " Better indentation
 vnoremap < <gv
