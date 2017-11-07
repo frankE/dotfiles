@@ -16,3 +16,6 @@
 [submodule "home/.vim/pack/plugin/start/VimCompletesMe"]
 	path = home/.vim/pack/plugin/start/VimCompletesMe
 	url = git://github.com/ajh17/VimCompletesMe.git
+[submodule "home/.vim/pack/plugin/start/nerdcommenter"]
+	path = home/.vim/pack/plugin/start/nerdcommenter
+	url = https://github.com/scrooloose/nerdcommenter.git
