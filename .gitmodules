@@ -19,3 +19,12 @@
 [submodule "home/.vim/pack/plugin/start/nerdcommenter"]
 	path = home/.vim/pack/plugin/start/nerdcommenter
 	url = https://github.com/scrooloose/nerdcommenter.git
+[submodule "home/.vim/pack/plugin/start/Conque-GDB"]
+	path = home/.vim/pack/plugin/start/Conque-GDB
+	url = https://github.com/vim-scripts/Conque-GDB.git
+[submodule "home/.vim/pack/plugin/start/vim-airline-themes"]
+	path = home/.vim/pack/plugin/start/vim-airline-themes
+	url = https://github.com/vim-airline/vim-airline-themes.git
+[submodule "home/.vim/pack/plugin/start/vim-fugitive"]
+	path = home/.vim/pack/plugin/start/vim-fugitive
+	url = https://github.com/tpope/vim-fugitive.git

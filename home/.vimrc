@@ -165,7 +165,7 @@ if has('termguicolors')
 endif
 
 try
-    colorscheme archery
+    colorscheme forgotten-dark
 catch
 endtry
 
@@ -461,3 +461,15 @@ set path+=**
 " seem to happen.
 autocmd QuickFixCmdPost [^l]* nested cwindow
 autocmd QuickFixCmdPost    l* nested lwindow
+
+" Settings for Conque-GDB
+let g:ConqueTerm_Color = 2
+let g:ConqueTerm_CloseOnEnd = 1
+let g:ConqueTerm_StartMessages = 0
+
+let g:airline_theme = 'base16'
+let g:airline_powerline_fonts = 1
+
+"python3 from powerline.vim import setup as powerline_setup
+"python3 powerline_setup()
+"python3 del powerline_setup

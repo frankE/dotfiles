@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-  export ZSH=/home/frank/.oh-my-zsh
+export ZSH=/home/frank/.oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -95,17 +95,22 @@ function cl {
 export EDITOR="vim"
 export USE_EDITOR=$EDITOR
 export VISUAL=$EDITOR
-# function zle-line-init zle-keymap-select {
-#     RPS1="${${KEYMAP/vicmd/-- NORMAL --}/(main|viins)/-- INSERT --}"
-#     RPS2=$RPS1
-#     zle reset-prompt
-# }
+# Prompt for Vi-mode
+OLD_PROMPT=$RPS1
+function zle-line-init zle-keymap-select {
+    VIM_PROMPT="%{$fg_bold[yellow]%} [% NORMAL]% %{$reset_color%}"
+    RPS1="${${KEYMAP/vicmd/$VIM_PROMPT}/(main|viins)/} $OLD_PROMPT"
+    zle reset-prompt
+}
 #
 # zle -N zle-line-init
 # zle -N zle-keymap-select
 
 # vi-mode indicator. Needs the vi-mode plugin from oh my zsh
-RPS1='$(vi_mode_prompt_info)'$RPROMPT
+# RPS1='$(vi_mode_prompt_info)'$RPROMPT
 
 # Enter vi mode with jj
 bindkey -M viins 'jj' vi-cmd-mode
+
+#powerline-daemon -q
+#. /home/frank/.local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh
