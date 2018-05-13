@@ -450,3 +450,5 @@ inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
 " Search for files in subdirs
 set path+=**
+
+autocmd Filetype pascal setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
