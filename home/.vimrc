@@ -408,8 +408,10 @@ nnoremap Ö {
 nnoremap Ä }
 nnoremap <leader>ö <C-[>
 nnoremap <leader>ä <C-]>
-noremap <leader>c "+y
-noremap <leader>v "+p
+if has('clipboard')
+    noremap <leader>y "+y
+    noremap <leader>p "+p
+endif
 "inoremap <C-ö> <C-[>
 "inoremap <C-ä> ^]
 nnoremap ß /
