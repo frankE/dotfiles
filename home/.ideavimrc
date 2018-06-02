@@ -1,4 +1,4 @@
-let mapleader = ","
+set mapleader = ","
 let g:mapleader = ","
 map <silent> <leader><cr> :noh<cr>
 
@@ -17,6 +17,8 @@ nnoremap ö [
 nnoremap ä ]
 nnoremap Ö {
 nnoremap Ä }
+nnoremap <leader>ö <C-[>
+nnoremap <leader>ä <C-]>
 nnoremap ß /
 vnoremap <space> :action CommentByLineComment<CR>
 noremap <leader>c "+y
@@ -29,5 +31,27 @@ vnoremap > >gv
 " Remove trailing whitespaces
 autocmd BufWritePre * %s/\s\+$//e
 
-"map <space> /
-"map <c-space> ?
+" For regular expressions turn magic on
+set magic
+
+" Visual mode pressing * or # searches for the current selection
+" Super useful! From an idea by Michael Naumann
+vnoremap <silent> * :<C-u>call VisualSelection('', '')<CR>/<C-R>=@/<CR><CR>
+vnoremap <silent> # :<C-u>call VisualSelection('', '')<CR>?<C-R>=@/<CR><CR>
+
+" Map <Space> to / (search) and Ctrl-<Space> to ? (backwards search)
+map <space> /
+map <c-space> ?
+
+" Smart way to move between windows
+map <C-j> <C-W>j
+map <C-k> <C-W>k
+map <C-h> <C-W>h
+map <C-l> <C-W>l
+
+" Move a line of text using ALT+[jk] or Command+[jk] on mac
+nmap <M-j> mz:m+<cr>`z
+nmap <M-k> mz:m-2<cr>`z
+vmap <M-j> :m'>+<cr>`<my`>mzgv`yo`z
+vmap <M-k> :m'<-2<cr>`>my`<mzgv`yo`z
+

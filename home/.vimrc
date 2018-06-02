@@ -157,17 +157,14 @@ syntax enable
 " Enable 256 colors palette in Gnome Terminal
 if $TERM == 'xterm-256color'
     set t_Co=256
+    colorscheme hybrid
 endif
 
 " Enable true color in supporting terminals
 if has('termguicolors')
     set termguicolors
-endif
-
-try
     colorscheme forgotten-dark
-catch
-endtry
+endif
 
 set background=dark
 
