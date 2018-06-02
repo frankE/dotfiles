@@ -1,5 +1,5 @@
-set mapleader = ","
-let g:mapleader = ","
+set mapleader = " "
+let g:mapleader = " "
 map <silent> <leader><cr> :noh<cr>
 
 set so=7
@@ -40,8 +40,8 @@ vnoremap <silent> * :<C-u>call VisualSelection('', '')<CR>/<C-R>=@/<CR><CR>
 vnoremap <silent> # :<C-u>call VisualSelection('', '')<CR>?<C-R>=@/<CR><CR>
 
 " Map <Space> to / (search) and Ctrl-<Space> to ? (backwards search)
-map <space> /
-map <c-space> ?
+" map <space> /
+" map <c-space> ?
 
 " Smart way to move between windows
 map <C-j> <C-W>j
