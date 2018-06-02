@@ -475,3 +475,6 @@ let g:airline_powerline_fonts = 1
 "python3 del powerline_setup
 
 set viminfo^=%
+
+" Autoclose html tags on </<space>
+iabbrev </ </<C-x><C-o>
