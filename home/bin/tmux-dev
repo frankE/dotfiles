@@ -1,0 +1,2 @@
+#!/bin/bash
+tmux new-session -AD -s 'dev' -n 'main' \; split-window -h \; select-pane -t 1 \; split-window -v \; select-pane -t 0

@@ -10,15 +10,17 @@ set incsearch
 set number relativenumber
 
 inoremap jj <Esc>
-inoremap <C-,> <Esc>A;<Enter>
-inoremap <C-.> <Esc>A<Space>{<Enter>
+"inoremap <C-,> <Esc>A;<Enter>
+"inoremap <C-.> <Esc>A<Space>{<Enter>
 
 nnoremap ö [
 nnoremap ä ]
 nnoremap Ö {
 nnoremap Ä }
 nnoremap ß /
-nnoremap <leader>c<space> :action CommentByLineComment<CR>
+vnoremap <space> :action CommentByLineComment<CR>
+noremap <leader>c "+y
+noremap <leader>v "+p
 
 " Better indentation
 vnoremap < <gv
@@ -26,3 +28,6 @@ vnoremap > >gv
 
 " Remove trailing whitespaces
 autocmd BufWritePre * %s/\s\+$//e
+
+"map <space> /
+"map <c-space> ?

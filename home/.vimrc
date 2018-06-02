@@ -411,6 +411,8 @@ nnoremap Ö {
 nnoremap Ä }
 nnoremap <leader>ö <C-[>
 nnoremap <leader>ä <C-]>
+noremap <leader>c "+y
+noremap <leader>v "+p
 "inoremap <C-ö> <C-[>
 "inoremap <C-ä> ^]
 nnoremap ß /
@@ -435,10 +437,11 @@ autocmd BufWritePre * %s/\s\+$//e
 set foldmethod=syntax
 set foldnestmax=2
 
+" Omnicompletion on
+set omnifunc=syntaxcomplete#Complete
 " PHP Options
-autocmd filetype php set omnifunc=phpcomplete#CompletePHP
 " autocmd filetype php inoremap <A-,> <Esc>A;
-" autocmd FileType php inoremap <A-.> <Esc>A<Space>{
+autocmd FileType php inoremap <A-.> <Esc>A<Space>{
 let php_foldung=1
 let g:phpcomplete_enhance_jump_to_definition=1
 
