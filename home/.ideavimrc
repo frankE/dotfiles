@@ -21,8 +21,8 @@ nnoremap <leader>ö <C-[>
 nnoremap <leader>ä <C-]>
 nnoremap ß /
 vnoremap <space> :action CommentByLineComment<CR>
-noremap <leader>c "+y
-noremap <leader>v "+p
+noremap <leader>y "+y
+noremap <leader>p "+p
 
 " Better indentation
 vnoremap < <gv
