@@ -348,7 +348,7 @@ map <leader>q :e ~/buffer<cr>
 map <leader>x :e ~/buffer.md<cr>
 
 " Toggle paste mode on and off
-map <leader>pp :setlocal paste!<cr>
+" map <leader>pp :setlocal paste!<cr>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Helper functions
@@ -411,6 +411,7 @@ nnoremap <leader>ä <C-]>
 if has('clipboard')
     noremap <leader>y "+y
     noremap <leader>p "+p
+    noremap <leader>P "+P
 endif
 "inoremap <C-ö> <C-[>
 "inoremap <C-ä> ^]
@@ -465,6 +466,7 @@ autocmd QuickFixCmdPost [^l]* nested cwindow
 autocmd QuickFixCmdPost    l* nested lwindow
 
 " Settings for Conque-GDB
+let g:ConqueGdb_Leader = '\'
 let g:ConqueTerm_Color = 2
 let g:ConqueTerm_CloseOnEnd = 1
 let g:ConqueTerm_StartMessages = 0
@@ -472,11 +474,13 @@ let g:ConqueTerm_StartMessages = 0
 let g:airline_theme = 'base16'
 let g:airline_powerline_fonts = 1
 
-"python3 from powerline.vim import setup as powerline_setup
-"python3 powerline_setup()
-"python3 del powerline_setup
-
 set viminfo^=%
 
 " Autoclose html tags on </<space>
 iabbrev </ </<C-x><C-o>
+
+" Syntastic
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
