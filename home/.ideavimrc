@@ -23,6 +23,7 @@ nnoremap ß /
 vnoremap <space> :action CommentByLineComment<CR>
 noremap <leader>y "+y
 noremap <leader>p "+p
+noremap <leader>P "+P
 
 " Better indentation
 vnoremap < <gv
