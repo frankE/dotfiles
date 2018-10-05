@@ -31,3 +31,21 @@
 [submodule "home/.vim/pack/plugin/start/syntastic"]
 	path = home/.vim/pack/plugin/start/syntastic
 	url = https://github.com/scrooloose/syntastic
+[submodule "home/.vim/pack/plugin/start/rust.vim"]
+	path = home/.vim/pack/plugin/start/rust.vim
+	url = https://github.com/rust-lang/rust.vim
+[submodule "home/.vim/pack/plugin/start/vim-racer"]
+	path = home/.vim/pack/plugin/start/vim-racer
+	url = https://github.com/racer-rust/vim-racer.git
+[submodule "home/.vim/pack/plugin/start/async.vim"]
+	path = home/.vim/pack/plugin/start/async.vim
+	url = https://github.com/prabirshrestha/async.vim
+[submodule "home/.vim/pack/plugin/start/vim-lsp"]
+	path = home/.vim/pack/plugin/start/vim-lsp
+	url = https://github.com/prabirshrestha/vim-lsp
+[submodule "home/.vim/pack/plugin/start/asyncomplete.vim"]
+	path = home/.vim/pack/plugin/start/asyncomplete.vim
+	url = https://github.com/prabirshrestha/asyncomplete.vim
+[submodule "home/.vim/pack/plugin/start/asyncomplete-lsp.vim"]
+	path = home/.vim/pack/plugin/start/asyncomplete-lsp.vim
+	url = https://github.com/prabirshrestha/asyncomplete-lsp.vim

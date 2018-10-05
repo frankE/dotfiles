@@ -484,3 +484,20 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+" Keep system clipboard
+autocmd VimLeave * call system("xsel -ib", getreg('+'))
+
+" vim-racer
+set hidden
+let g:racer_experimental_completer = 1
+
+" rls
+if executable('rls')
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'rls',
+        \ 'cmd': {server_info->['rustup', 'run', 'nightly', 'rls']},
+        \ 'whitelist': ['rust'],
+        \ })
+endif
+
+let g:rustfmt_emit_files = 1
