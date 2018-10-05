@@ -84,8 +84,8 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias ll='ls -lahF'
-alias l='ls -lhF'
+alias ll='exa -lahFg --git'
+alias l='exa -lahFg'
 
 # change directory and list contents afterwards
 function cl {
