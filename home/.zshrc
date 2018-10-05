@@ -85,8 +85,8 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-# Use exa if it's installed under /usr/local/bin/exa
-if [ -f "/usr/local/bin/exa" ]; then
+# Use exa if it's installed
+if [ -x "$(command -v exa)" ]; then
     alias ll='exa -lahFg --git'
     alias l='exa -lahFg'
 else
