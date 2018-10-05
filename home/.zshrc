@@ -114,4 +114,8 @@ function zle-line-init zle-keymap-select {
 bindkey -M viins 'jj' vi-cmd-mode
 
 #powerline-daemon -q
-#. /home/frank/.local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh
+#. /home/frank/.local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsho
+
+# Autojump
+. /usr/share/autojump/autojump.sh
+
