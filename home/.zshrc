@@ -84,8 +84,15 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias ll='exa -lahFg --git'
-alias l='exa -lahFg'
+
+# Use exa if it's installed under /usr/local/bin/exa
+if [ -f "/usr/local/bin/exa" ]; then
+    alias ll='exa -lahFg --git'
+    alias l='exa -lahFg'
+else
+    alias ll='ls -lahF'
+    alias l='ls -laF'
+fi
 
 # change directory and list contents afterwards
 function cl {
