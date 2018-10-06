@@ -406,8 +406,6 @@ nnoremap ö [
 nnoremap ä ]
 nnoremap Ö {
 nnoremap Ä }
-nnoremap <leader>ö <C-[>
-nnoremap <leader>ä <C-]>
 if has('clipboard')
     noremap <leader>y "+y
     noremap <leader>p "+p
@@ -490,6 +488,14 @@ autocmd VimLeave * call system("xsel -ib", getreg('+'))
 " vim-racer
 set hidden
 let g:racer_experimental_completer = 1
+" pyls
+if executable('pyls')
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'pyls',
+        \ 'cmd': {server_info->['pyls']},
+        \ 'whitelist': ['python'],
+        \ })
+endif
 
 " rls
 if executable('rls')
