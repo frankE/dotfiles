@@ -13,24 +13,15 @@
 [submodule "home/.vim/pack/plugin/start/nerdtree"]
 	path = home/.vim/pack/plugin/start/nerdtree
 	url = https://github.com/scrooloose/nerdtree.git
-[submodule "home/.vim/pack/plugin/start/VimCompletesMe"]
-	path = home/.vim/pack/plugin/start/VimCompletesMe
-	url = git://github.com/ajh17/VimCompletesMe.git
 [submodule "home/.vim/pack/plugin/start/nerdcommenter"]
 	path = home/.vim/pack/plugin/start/nerdcommenter
 	url = https://github.com/scrooloose/nerdcommenter.git
-[submodule "home/.vim/pack/plugin/start/Conque-GDB"]
-	path = home/.vim/pack/plugin/start/Conque-GDB
-	url = https://github.com/vim-scripts/Conque-GDB.git
 [submodule "home/.vim/pack/plugin/start/vim-airline-themes"]
 	path = home/.vim/pack/plugin/start/vim-airline-themes
 	url = https://github.com/vim-airline/vim-airline-themes.git
 [submodule "home/.vim/pack/plugin/start/vim-fugitive"]
 	path = home/.vim/pack/plugin/start/vim-fugitive
 	url = https://github.com/tpope/vim-fugitive.git
-[submodule "home/.vim/pack/plugin/start/syntastic"]
-	path = home/.vim/pack/plugin/start/syntastic
-	url = https://github.com/scrooloose/syntastic
 [submodule "home/.vim/pack/plugin/start/rust.vim"]
 	path = home/.vim/pack/plugin/start/rust.vim
 	url = https://github.com/rust-lang/rust.vim
@@ -49,3 +40,6 @@
 [submodule "home/.vim/pack/plugin/start/asyncomplete-lsp.vim"]
 	path = home/.vim/pack/plugin/start/asyncomplete-lsp.vim
 	url = https://github.com/prabirshrestha/asyncomplete-lsp.vim
+[submodule "home/.vim/pack/plugin/start/ale"]
+	path = home/.vim/pack/plugin/start/ale
+	url = https://github.com/w0rp/ale.git

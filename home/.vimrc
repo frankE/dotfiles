@@ -471,17 +471,14 @@ let g:ConqueTerm_StartMessages = 0
 
 let g:airline_theme = 'base16'
 let g:airline_powerline_fonts = 1
+" Set this. Airline will handle the rest.
+let g:airline#extensions#ale#enabled = 1
 
 set viminfo^=%
 
 " Autoclose html tags on </<space>
 iabbrev </ </<C-x><C-o>
 
-" Syntastic
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
 " Keep system clipboard
 autocmd VimLeave * call system("xsel -ib", getreg('+'))
 
@@ -506,4 +503,21 @@ if executable('rls')
         \ })
 endif
 
+" Always show preview for autocompletion
+set completeopt+=preview
+" Auto close preview window
+autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
+
 let g:rustfmt_emit_files = 1
+
+
+let g:ale_linters = {'rust': ['rls'], 'python': ['pyls']}
+" Load all plugins now.
+" Plugins need to be added to runtimepath before helptags can be generated.
+packloadall
+" Load all of the helptags now, after plugins have been loaded.
+" All messages and errors will be ignored.
+silent! helptags ALL
+
+" Workaround for disapearing cursor
+let g:ale_echo_cursor = 0
