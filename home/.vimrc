@@ -402,18 +402,12 @@ function! VisualSelection(direction, extra_filter) range
 endfunction
 
 " Some Keyboard mappings
-nnoremap ö [
-nnoremap ä ]
-nnoremap Ö {
-nnoremap Ä }
 if has('clipboard')
     noremap <leader>y "+y
     noremap <leader>p "+p
     noremap <leader>P "+P
 endif
-"inoremap <C-ö> <C-[>
-"inoremap <C-ä> ^]
-nnoremap ß /
+
 inoremap jj <Esc>
 
 " Better indentation
@@ -521,3 +515,5 @@ silent! helptags ALL
 
 " Workaround for disapearing cursor
 let g:ale_echo_cursor = 0
+set colorcolumn=81
+"execute "set colorcolumn=" . join(range(81,335), ',')
