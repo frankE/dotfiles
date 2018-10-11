@@ -402,20 +402,12 @@ function! VisualSelection(direction, extra_filter) range
 endfunction
 
 " Some Keyboard mappings
-nnoremap ö [
-nnoremap ä ]
-nnoremap Ö {
-nnoremap Ä }
-nnoremap <leader>ö <C-[>
-nnoremap <leader>ä <C-]>
 if has('clipboard')
     noremap <leader>y "+y
     noremap <leader>p "+p
     noremap <leader>P "+P
 endif
-"inoremap <C-ö> <C-[>
-"inoremap <C-ä> ^]
-nnoremap ß /
+
 inoremap jj <Esc>
 
 " Better indentation
@@ -479,8 +471,47 @@ set viminfo^=%
 " Autoclose html tags on </<space>
 iabbrev </ </<C-x><C-o>
 
-" Syntastic
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
+" Keep system clipboard
+autocmd VimLeave * call system("xsel -ib", getreg('+'))
+
+" vim-racer
+set hidden
+let g:racer_experimental_completer = 1
+" pyls
+if executable('pyls')
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'pyls',
+        \ 'cmd': {server_info->['pyls']},
+        \ 'whitelist': ['python'],
+        \ })
+endif
+
+" rls
+if executable('rls')
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'rls',
+        \ 'cmd': {server_info->['rustup', 'run', 'nightly', 'rls']},
+        \ 'whitelist': ['rust'],
+        \ })
+endif
+
+" Always show preview for autocompletion
+set completeopt+=preview
+" Auto close preview window
+autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
+
+let g:rustfmt_emit_files = 1
+
+
+let g:ale_linters = {'rust': ['rls'], 'python': ['pyls']}
+" Load all plugins now.
+" Plugins need to be added to runtimepath before helptags can be generated.
+packloadall
+" Load all of the helptags now, after plugins have been loaded.
+" All messages and errors will be ignored.
+silent! helptags ALL
+
+" Workaround for disapearing cursor
+let g:ale_echo_cursor = 0
+set colorcolumn=81
+"execute "set colorcolumn=" . join(range(81,335), ',')
