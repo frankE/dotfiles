@@ -163,7 +163,9 @@ endif
 " Enable true color in supporting terminals
 if has('termguicolors')
     set termguicolors
-    colorscheme forgotten-dark
+    set background=dark
+    colorscheme snow
+    "let g:airline_theme='snow_dark'
 endif
 
 set background=dark
@@ -517,3 +519,5 @@ silent! helptags ALL
 let g:ale_echo_cursor = 0
 set colorcolumn=81
 "execute "set colorcolumn=" . join(range(81,335), ',')
+set spell
+set spelllang=de

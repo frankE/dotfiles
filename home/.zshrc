@@ -125,4 +125,4 @@ bindkey -M viins 'jj' vi-cmd-mode
 
 # Autojump
 . /usr/share/autojump/autojump.sh
-
+[ -n "$PS1" ] && sh ~/.vim/pack/plugin/start/snow/shell/snow_dark.sh
