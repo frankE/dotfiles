@@ -43,3 +43,6 @@
 [submodule "home/.vim/pack/plugin/start/ale"]
 	path = home/.vim/pack/plugin/start/ale
 	url = https://github.com/w0rp/ale.git
+[submodule "home/.vim/pack/plugin/start/snow"]
+	path = home/.vim/pack/plugin/start/snow
+	url = https://github.com/nightsense/snow.git
