@@ -499,7 +499,7 @@ if executable('rls')
         \ })
 endif
 
-" Always show preview for autocompletion
+" Always show preview for auto completion
 set completeopt+=preview
 " Auto close preview window
 autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
@@ -515,9 +515,9 @@ packloadall
 " All messages and errors will be ignored.
 silent! helptags ALL
 
-" Workaround for disapearing cursor
-let g:ale_echo_cursor = 0
+" Workaround for disappearing cursor
+"let g:ale_echo_cursor = 0
 set colorcolumn=81
 "execute "set colorcolumn=" . join(range(81,335), ',')
 set spell
-set spelllang=de
+set spelllang=de,en
