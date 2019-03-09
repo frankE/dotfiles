@@ -119,6 +119,7 @@ function zle-line-init zle-keymap-select {
 
 # Enter vi mode with jj
 bindkey -M viins 'jj' vi-cmd-mode
+bindkey -M viins 'Esc' vi-cmd-mode
 
 #powerline-daemon -q
 #. /home/frank/.local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsho
