@@ -104,6 +104,10 @@ function cl {
 export EDITOR="vim"
 export USE_EDITOR=$EDITOR
 export VISUAL=$EDITOR
+
+# Browser env var
+export BROWSER="firefox"
+
 # Prompt for Vi-mode
 OLD_PROMPT=$RPS1
 function zle-line-init zle-keymap-select {
