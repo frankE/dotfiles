@@ -105,6 +105,7 @@ export EDITOR="vim"
 export USE_EDITOR=$EDITOR
 export VISUAL=$EDITOR
 export W3MIMGDISPLAY_PATH=$HOME/bin/w3m-img-hack.sh
+export TERMINAL=alacritty
 
 # Browser env var
 export BROWSER="firefox"
