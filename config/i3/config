@@ -207,6 +207,8 @@ bar {
 
 
 exec compton
+#exec --no-startup-id xfce4-volumed
+exec --no-startup-id xfce4-power-manager --sm-client-disable
 exec ~/bin/autostart.sh
 exec firefox
 exec thunderbird

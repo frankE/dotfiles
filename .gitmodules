@@ -46,3 +46,6 @@
 [submodule "home/.vim/pack/plugin/start/snow"]
 	path = home/.vim/pack/plugin/start/snow
 	url = https://github.com/nightsense/snow.git
+[submodule "home/.vim/pack/plugin/start/asyncomplete-file.vim"]
+	path = home/.vim/pack/plugin/start/asyncomplete-file.vim
+	url = https://github.com/prabirshrestha/asyncomplete-file.vim.git
