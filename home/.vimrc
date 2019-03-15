@@ -432,18 +432,18 @@ set foldmethod=syntax
 set foldnestmax=2
 
 " Omnicompletion on
-set omnifunc=syntaxcomplete#Complete
+" set omnifunc=syntaxcomplete#Complete
 " PHP Options
 " autocmd filetype php inoremap <A-,> <Esc>A;
 autocmd FileType php inoremap <A-.> <Esc>A<Space>{
-let php_foldung=1
-let g:phpcomplete_enhance_jump_to_definition=1
+"let php_foldung=1
+"let g:phpcomplete_enhance_jump_to_definition=1
 
 " NERDTree
-map <C-i> :NERDTreeToggle<CR>
+"map <C-i> :NERDTreeToggle<CR>
 
 " VimCompletesMe
-inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+" inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
 " Search for files in subdirs
 set path+=**
@@ -478,10 +478,7 @@ iabbrev </ </<C-x><C-o>
 " Keep system clipboard
 autocmd VimLeave * call system("xsel -ib", getreg('+'))
 
-" vim-racer
-set hidden
-let g:racer_experimental_completer = 1
-" pyls
+" vim-lsp
 if executable('pyls')
     au User lsp_setup call lsp#register_server({
         \ 'name': 'pyls',
@@ -499,10 +496,23 @@ if executable('rls')
         \ })
 endif
 
-" Always show preview for auto completion
-set completeopt+=preview
+
+" Asyncomplete
+let g:asyncomplete_smart_completion = 1
+let g:asyncomplete_auto_popup = 1
+
+" Files via asynccomplete-file
+au User asyncomplete_setup call asyncomplete#register_source(asyncomplete#sources#file#get_source_options({
+    \ 'name': 'file',
+    \ 'whitelist': ['*'],
+    \ 'priority': 10,
+    \ 'completor': function('asyncomplete#sources#file#completor')
+    \ }))
+
+imap <c-n> <Plug>(asyncomplete_force_refresh)
+"set completeopt+=preview
 " Auto close preview window
-autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
+"autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
 
 let g:rustfmt_emit_files = 1
 
@@ -521,3 +531,4 @@ set colorcolumn=81
 "execute "set colorcolumn=" . join(range(81,335), ',')
 set spell
 set spelllang=de,en
+
