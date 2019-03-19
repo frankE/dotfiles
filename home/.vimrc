@@ -491,7 +491,7 @@ endif
 if executable('rls')
     au User lsp_setup call lsp#register_server({
         \ 'name': 'rls',
-        \ 'cmd': {server_info->['rustup', 'run', 'nightly', 'rls']},
+        \ 'cmd': {server_info->['rustup', 'run', 'stable', 'rls']},
         \ 'whitelist': ['rust'],
         \ })
 endif
@@ -510,13 +510,14 @@ au User asyncomplete_setup call asyncomplete#register_source(asyncomplete#source
     \ }))
 
 imap <c-n> <Plug>(asyncomplete_force_refresh)
-"set completeopt+=preview
+set completeopt+=preview
 " Auto close preview window
 "autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
 
 let g:rustfmt_emit_files = 1
 
 
+let g:ale_rust_rls_toolchain = 'stable'
 let g:ale_linters = {'rust': ['rls'], 'python': ['pyls']}
 " Load all plugins now.
 " Plugins need to be added to runtimepath before helptags can be generated.
