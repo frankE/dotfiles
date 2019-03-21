@@ -164,7 +164,7 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 # Icon names at: https://developer.gnome.org/icon-naming-spec/
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-gtk-options -t warning -m 'Logout' -B 'Lock screen' 'i3lock' system-lock-screen -B 'Logout' 'i3-msg exit' system-log-out -B 'Suspend' 'systemctl suspend' system-log-out -B 'Reboot' 'systemctl reboot' system-reboot -B 'Shutdown' 'systemctl shutdown' system-shutdown --exit-after-action"
+bindsym $mod+Shift+e exec "i3-gtk-options -t warning -m 'Logout' -B 'Lock screen' 'i3lock' system-lock-screen -B 'Logout' 'i3-msg exit' system-log-out -B 'Suspend' 'systemctl suspend' system-log-out -B 'Reboot' 'systemctl reboot' system-reboot -B 'Shutdown' 'systemctl poweroff' system-shutdown --exit-after-action"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
