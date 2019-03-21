@@ -208,6 +208,9 @@ bar {
 	}
 }
 
+#Move Workspace to another Monitor
+bindsym $mod+n "exec i3-msg move workspace to output left"
+bindsym $mod+m "exec i3-msg move workspace to output right"
 
 exec compton
 #exec --no-startup-id xfce4-volumed
