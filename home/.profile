@@ -19,6 +19,6 @@ fi
 # set PATH so it includes user's private bin directories
 PATH="$HOME/bin:$HOME/.local/bin:$HOME/go/bin:$PATH"
 EDITOR="VIM"
+export TERMINAL="alacritty"
 
 export PATH="$HOME/.cargo/bin:$PATH"
-export TERMINAL="alacritty"
