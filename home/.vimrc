@@ -157,7 +157,7 @@ syntax enable
 " Enable 256 colors palette in Gnome Terminal
 if $TERM == 'xterm-256color'
     set t_Co=256
-    colorscheme hybrid
+    colorscheme snow
 endif
 
 " Enable true color in supporting terminals
