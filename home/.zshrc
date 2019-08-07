@@ -89,6 +89,7 @@ source $ZSH/oh-my-zsh.sh
 # Use exa if it's installed
 if [ -x "$(command -v exa)" ]; then
     alias ll='exa -lahFg --git'
+    alias la='exa -lah'
     alias l='exa -lahFg'
 else
     alias ll='ls -lahF'
