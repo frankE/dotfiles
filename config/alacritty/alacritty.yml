@@ -552,6 +552,10 @@ key_bindings:
   #- { key: W,      mods: Command,         action: Quit             }
   #- { key: F,      mods: Command|Control, action: ToggleFullscreen }
 
+  - { key: J,       mods: Super,         action: ScrollLineDown   }
+  - { key: K,       mods: Super,         action: ScrollLineUp     }
+  - { key: F,       mods: Super,         action: ScrollPageDown   }
+  - { key: B,       mods: Super,         action: ScrollPageUp     }
   - { key: Paste,                   action: Paste                            }
   - { key: Copy,                    action: Copy                             }
   - { key: L,        mods: Control, action: ClearLogNotice                   }
