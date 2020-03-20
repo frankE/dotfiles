@@ -1,6 +1,0 @@
-#!/bin/bash
-if [ -z "$1" ]; then
-    tmux new-session -AD -n 'main' \; split-window -h \; select-pane -t 1 \; split-window -v \; select-pane -t 0 \;
-else
-    tmux new-session -AD -n 'main' \; split-window -h \; select-pane -t 1 \; split-window -v \; select-pane -t 0 \; send-keys $1 Space $2 Space $3 Space $4 Enter
-fi
