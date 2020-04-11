@@ -1,12 +1,30 @@
+call plug#begin('~/.vim/plugged')
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'Badacadabra/vim-archery'
+Plug 'nightsense/snow'
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+Plug 'w0rp/ale'
+Plug 'scrooloose/nerdcommenter'
+Plug 'tpope/vim-fugitive'
+Plug 'rust-lang/rust.vim'
+Plug 'racer-rust/vim-racer'
+Plug 'prabirshrestha/vim-lsp'
+Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'prabirshrestha/asyncomplete-lsp.vim'
+Plug 'prabirshrestha/asyncomplete-file.vim'
+call plug#end()
+
+
 set nocompatible
 " Sets how many lines of history VIM has to remember
 set history=500
 
 " Load pathogen on older vim
-if version < 800
-    source ~/.vim/vim-pathogen/autoload/pathogen.vim
-    execute pathogen#infect('pack/{}/start/{}')
-endif
+"if version < 800
+"    source ~/.vim/vim-pathogen/autoload/pathogen.vim
+"    execute pathogen#infect('pack/{}/start/{}')
+"endif
 
 " Enable filetype plugins
 filetype plugin on
@@ -445,13 +463,13 @@ if executable('pyls')
 endif
 
 " rls
-if executable('rls')
-    au User lsp_setup call lsp#register_server({
-        \ 'name': 'rls',
-        \ 'cmd': {server_info->['rustup', 'run', 'stable', 'rls']},
-        \ 'whitelist': ['rust'],
-        \ })
-endif
+"if executable('rls')
+"    au User lsp_setup call lsp#register_server({
+"        \ 'name': 'rls',
+"        \ 'cmd': {server_info->['rustup', 'run', 'stable', 'rls']},
+"        \ 'whitelist': ['rust'],
+"        \ })
+"endif
 
 
 " Asyncomplete
