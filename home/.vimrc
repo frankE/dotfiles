@@ -1,8 +1,9 @@
 call plug#begin('~/.vim/plugged')
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'Badacadabra/vim-archery'
-Plug 'nightsense/snow'
+"Plug 'Badacadabra/vim-archery'
+Plug 'arcticicestudio/nord-vim'
+"Plug 'nightsense/snow'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'w0rp/ale'
 Plug 'scrooloose/nerdcommenter'
@@ -13,6 +14,7 @@ Plug 'prabirshrestha/vim-lsp'
 Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'prabirshrestha/asyncomplete-lsp.vim'
 Plug 'prabirshrestha/asyncomplete-file.vim'
+Plug 'lervag/vimtex'
 call plug#end()
 
 
@@ -53,8 +55,8 @@ command W w !sudo tee % > /dev/null
 set so=7
 
 " Avoid garbled characters in Chinese language windows OS
-let $LANG='en'
-set langmenu=en
+" let $LANG='en'
+" set langmenu=en
 source $VIMRUNTIME/delmenu.vim
 source $VIMRUNTIME/menu.vim
 
@@ -130,7 +132,7 @@ syntax enable
 " Enable 256 colors palette in Gnome Terminal
 if $TERM == 'xterm-256color'
     set t_Co=256
-    colorscheme snow
+    colorscheme nord
 endif
 
 " Enable true color in supporting terminals
@@ -139,7 +141,7 @@ if has('termguicolors')
     execute "set t_8b=\e[48;2;%lu;%lu;%lum"
     set termguicolors
     set background=dark
-    colorscheme snow
+    colorscheme nord
     "let g:airline_theme='snow_dark'
 endif
 
@@ -222,8 +224,8 @@ map <leader>bd :Bclose<cr>:tabclose<cr>gT
 " Close all the buffers
 map <leader>ba :bufdo bd<cr>
 
-map <leader>l :bnext<cr>
-map <leader>h :bprevious<cr>
+"map <leader>l :bnext<cr>
+"map <leader>h :bprevious<cr>
 
 " Useful mappings for managing tabs
 map <leader>tn :tabnew<cr>
