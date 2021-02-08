@@ -1,4 +1,5 @@
 call plug#begin('~/.vim/plugged')
+Plug 'prabirshrestha/async.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 "Plug 'Badacadabra/vim-archery'
@@ -465,13 +466,13 @@ if executable('pyls')
 endif
 
 " rls
-"if executable('rls')
-"    au User lsp_setup call lsp#register_server({
-"        \ 'name': 'rls',
-"        \ 'cmd': {server_info->['rustup', 'run', 'stable', 'rls']},
-"        \ 'whitelist': ['rust'],
-"        \ })
-"endif
+if executable('rls')
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'rls',
+        \ 'cmd': {server_info->['rustup', 'run', 'stable', 'rls']},
+        \ 'whitelist': ['rust'],
+        \ })
+endif
 
 
 " Asyncomplete
@@ -505,7 +506,7 @@ silent! helptags ALL
 
 " Workaround for disappearing cursor
 "let g:ale_echo_cursor = 0
-set colorcolumn=81
+set colorcolumn=71
 "execute "set colorcolumn=" . join(range(81,335), ',')
 set spell
 set spelllang=de,en
