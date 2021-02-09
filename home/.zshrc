@@ -10,7 +10,7 @@ test -r ~/.dir_colors && eval $(dircolors ~/.dir_colors)
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 #ZSH_THEME="af-magic"
-ZSH_THEME="agnoster"
+#ZSH_THEME="agnoster"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -134,3 +134,6 @@ bindkey -M viins 'Esc' vi-cmd-mode
 # Autojump
 . /usr/share/autojump/autojump.sh
 # [ -n "$PS1" ] && sh ~/.vim/plugged/snow/shell/snow_dark.sh
+if [ -x "$(command -v starship)" ]; then
+    eval "$(starship init zsh)" fi
+fi
