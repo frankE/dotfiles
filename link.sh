@@ -11,5 +11,4 @@ find .* -maxdepth 0 -name '.[^.]*' | while read file; do rm "$HOME/.config/$file
 find * -maxdepth 0 | while read file; do rm "$HOME/.config/$file"; ln -s "`pwd`/$file" "$HOME/.config/$file"; done
 
 cd ..
-ln -s ./zsh-dircolors-nord ./home/.oh-my-zsh/custom/plugins/
-
+ln -sr `pwd`/nord-dircolors/src/dir_colors "$HOME/.dir_colors"
