@@ -130,9 +130,13 @@ bindkey -M viins 'Esc' vi-cmd-mode
 
 #powerline-daemon -q
 #. /home/frank/.local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsho
+PATH="$HOME/bin:$HOME/.local/bin:$HOME/go/bin:$PATH"
+EDITOR="VIM"
+# export TERMINAL="alacritty"
 
-# Autojump
-. /usr/share/autojump/autojump.sh
+export PATH="$HOME/.cargo/bin:$PATH"
+export LANG="de_DE.UTF8"
+
 # [ -n "$PS1" ] && sh ~/.vim/plugged/snow/shell/snow_dark.sh
 if [ -x "$(command -v starship)" ]; then
     eval "$(starship init zsh)" fi
