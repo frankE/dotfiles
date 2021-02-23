@@ -1,3 +1,2 @@
-vnoremap <space> :action CommentByLineComment<CR>
-
-source .vimrc
+source .vim/settings.vim
+vnoremap <space>/ :action CommentByLineComment<CR>
