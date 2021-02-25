@@ -110,34 +110,15 @@ export VISUAL=$EDITOR
 # Browser env var
 export BROWSER="firefox"
 
-# Prompt for Vi-mode
-OLD_PROMPT=$RPS1
-function zle-line-init zle-keymap-select {
-    VIM_PROMPT="%{$fg_bold[yellow]%} [% NORMAL]% %{$reset_color%}"
-    RPS1="${${KEYMAP/vicmd/$VIM_PROMPT}/(main|viins)/} $OLD_PROMPT"
-    zle reset-prompt
-}
-#
-# zle -N zle-line-init
-# zle -N zle-keymap-select
-
-# vi-mode indicator. Needs the vi-mode plugin from oh my zsh
-# RPS1='$(vi_mode_prompt_info)'$RPROMPT
-
 # Enter vi mode with jj
-bindkey -M viins 'jj' vi-cmd-mode
 bindkey -M viins 'Esc' vi-cmd-mode
 
 #powerline-daemon -q
-#. /home/frank/.local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsho
 PATH="$HOME/bin:$HOME/.local/bin:$HOME/go/bin:$PATH"
-EDITOR="VIM"
-# export TERMINAL="alacritty"
 
 export PATH="$HOME/.cargo/bin:$PATH"
 export LANG="de_DE.UTF8"
 
-# [ -n "$PS1" ] && sh ~/.vim/plugged/snow/shell/snow_dark.sh
 if [ -x "$(command -v starship)" ]; then
     eval "$(starship init zsh)" fi
 fi
