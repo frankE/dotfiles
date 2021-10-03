@@ -23,6 +23,7 @@ let g:airline_powerline_fonts = 1
 " Set this. Airline will handle the rest.
 let g:airline#extensions#ale#enabled = 1
 
+nnoremap <silent> <leader>n :NERDTreeToggle<CR>
 " vim-lsp
 if executable('pyls')
     au User lsp_setup call lsp#register_server({
@@ -70,3 +71,4 @@ packloadall
 " Load all of the helptags now, after plugins have been loaded.
 " All messages and errors will be ignored.
 silent! helptags ALL
+colorscheme nord

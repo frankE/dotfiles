@@ -106,7 +106,6 @@ syntax enable
 " Enable 256 colors palette in Gnome Terminal
 if $TERM == 'xterm-256color'
     set t_Co=256
-    colorscheme nord
 endif
 
 " Enable true color in supporting terminals
@@ -115,7 +114,6 @@ if has('termguicolors')
     execute "set t_8b=\e[48;2;%lu;%lu;%lum"
     set termguicolors
     set background=dark
-    colorscheme nord
     "let g:airline_theme='snow_dark'
 endif
 
