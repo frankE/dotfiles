@@ -10,7 +10,8 @@ Plug 'prabirshrestha/async.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 "Plug 'Badacadabra/vim-archery'
-Plug 'arcticicestudio/nord-vim'
+"Plug 'arcticicestudio/nord-vim'
+Plug 'sonph/onehalf', { 'rtp': 'vim' }
 "Plug 'nightsense/snow'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'w0rp/ale'
@@ -25,7 +26,9 @@ Plug 'prabirshrestha/asyncomplete-file.vim'
 Plug 'lervag/vimtex'
 call plug#end()
 
-let g:airline_theme = 'base16'
+colorscheme onehalfdark
+
+let g:airline_theme = 'onehalfdark'
 let g:airline_powerline_fonts = 1
 " Set this. Airline will handle the rest.
 let g:airline#extensions#ale#enabled = 1
@@ -40,19 +43,18 @@ if executable('pyls')
         \ })
 endif
 
-" rls
-if executable('rls')
-    au User lsp_setup call lsp#register_server({
-        \ 'name': 'rls',
-        \ 'cmd': {server_info->['rustup', 'run', 'stable', 'rls']},
-        \ 'whitelist': ['rust'],
+if executable('rust-analyzer')
+  au User lsp_setup call lsp#register_server({
+        \   'name': 'Rust Language Server',
+        \   'cmd': {server_info->['rust-analyzer']},
+        \   'whitelist': ['rust'],
         \ })
 endif
-
 
 " Asyncomplete
 let g:asyncomplete_smart_completion = 1
 let g:asyncomplete_auto_popup = 1
+nnoremap g] :ALEGoToDefinition<CR>
 
 " Files via asynccomplete-file
 au User asyncomplete_setup call asyncomplete#register_source(asyncomplete#sources#file#get_source_options({
@@ -71,11 +73,10 @@ let g:rustfmt_emit_files = 1
 
 
 let g:ale_rust_rls_toolchain = 'stable'
-let g:ale_linters = {'rust': ['rls'], 'python': ['pyls']}
+let g:ale_linters = {'rust': ['analyzer'], 'python': ['pyls']}
 " Load all plugins now.
 " Plugins need to be added to runtimepath before helptags can be generated.
 packloadall
 " Load all of the helptags now, after plugins have been loaded.
 " All messages and errors will be ignored.
 silent! helptags ALL
-colorscheme nord
