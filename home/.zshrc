@@ -96,7 +96,9 @@ else
     alias ll='ls -lahF'
     alias l='ls -laF'
 fi
-
+if [ -x "$(command -v podman)" ]; then
+    alias docker=podman
+fi
 # change directory and list contents afterwards
 function cl {
   builtin cd "$@" && ls -F
@@ -118,6 +120,9 @@ PATH="$HOME/bin:$HOME/.local/bin:$HOME/go/bin:$PATH"
 
 export PATH="$HOME/.cargo/bin:$PATH"
 export LANG="de_DE.UTF8"
+
+# Setup podman socket for docker compose
+export DOCKER_HOST=unix:///run/user/1000/podman/podman.sock
 
 if [ -x "$(command -v starship)" ]; then
     eval "$(starship init zsh)" fi
