@@ -30,6 +30,10 @@ def exec(args):
 
 
 def start_session(path, project):
+    if os.path.isfile(os.path.join(path, '.tmuxp.yaml')) or os.path.isfile(os.path.join(path, '.tmuxp.json')):
+        ret = subprocess.run(['tmuxp', 'load', '-y', '-s', project, path], stdin=sys.stdin, stdout=sys.stdout, stderr=sys.stderr)
+        exit(0)
+
     run([tmux, 'new-session', '-d', '-c', path, '-s', project])
     exec_session(project)
 
@@ -39,6 +43,8 @@ def exec_session(project):
         exec([tmux, 'switch-client', '-t', project])
     else:
         exec([tmux, 'attach-session', '-t', project])
+        #os.execv(tmux, [tmux, 'attach-session', '-t', project])
+        exit(0)
 
 
 def tmux_sessions():
@@ -55,7 +61,7 @@ def open_project(project):
     if project.startswith("tmux:"):
         project = project.replace("tmux:", "", 1)
         exec_session(project)
-        
+
     project_parts = project.split('/')
 
     if project in tmux_sessions():
@@ -105,9 +111,14 @@ if len(sys.argv) < 2:
     exec_line = "enter:execute(%s {})+accept" % os.path.abspath(sys.argv[0])
     projects = build_project_list()
     input_buffer = "\n".join(projects)
-    ret = subprocess.run(['fzf', '--bind', exec_line], input=input_buffer, encoding="UTF-8")
+    proc = subprocess.Popen(['fzf',], encoding="UTF-8", stdout=subprocess.PIPE, stdin=subprocess.PIPE)
+    out, err = proc.communicate(input=input_buffer)
+    if proc.returncode != 0:
+        exit(1)
+    project = out.strip()
+    open_project(project)
     exit(0)
 
-project = str(sys.argv[1])
+project = str(sys.argv[1]).strip()
 open_project(project)
 
