@@ -6,6 +6,7 @@
 # sudo dnf install python3-fabric
 # sudo dnf install python3-pyyaml
 # sudo dnf install fzf
+# sudo dnf install openssh-askpass
 #
 # # interception-tools (caps2esc)
 # sudo dnf copr enable fszymanski/interception-tools
