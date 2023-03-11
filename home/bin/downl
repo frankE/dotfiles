@@ -1,0 +1,29 @@
+#!/usr/bin/env python3
+
+from fabric import Connection
+from deployment import load_config, get_remote_filename, config_file
+import os
+import sys
+
+
+if __name__ == "__main__":
+    host = None
+    if len(sys.argv) < 2:
+        print("Error: no file given)")
+    file_name = os.path.abspath(sys.argv[1])
+    path = os.path.dirname(file_name)
+    if len(sys.argv) > 2:
+        if not sys.argv[2].startswith('-'):
+            host = sys.argv[2]
+    config = load_config(path, config_file)
+
+    if config is None:
+        print('Error: no config found')
+        exit(1)
+    if host is None:
+        host = next(iter(config['hosts'].keys()))
+
+    remote_file = get_remote_filename(config, host, file_name)
+    c = Connection(config['hosts'][host]['name'])
+    c.get(remote_file, file_name, False)
+    c.close()
