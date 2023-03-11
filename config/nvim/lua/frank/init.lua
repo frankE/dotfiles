@@ -9,6 +9,7 @@ function ColorWithTransparentBG(color)
 
 	vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
 	vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+	vim.api.nvim_set_hl(0, "EndOfBuffer", { bg = "none" })
 end
 
 ColorWithTransparentBG()
@@ -27,6 +28,8 @@ local lsp = require('lsp-zero').preset({
 lsp.ensure_installed({
     'intelephense',
 })
+
+-- lsp.skip_server_setup({'rust_analyzer'})
 -- pass arguments to a language server
 -- see :help lsp-zero.configure()
 lsp.skip_server_setup({'intelephense'})
