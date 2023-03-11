@@ -1,5 +1,6 @@
 home/.vim/.netrwhist
 home/.vim/autoload/plug.vim
 **/tags
+**/__pycache__/
 **/*.swp
 home/.vim/view
