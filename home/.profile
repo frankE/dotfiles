@@ -18,8 +18,9 @@ fi
 
 # set PATH so it includes user's private bin directories
 PATH="$HOME/bin:$HOME/.local/bin:$HOME/go/bin:$PATH"
-EDITOR="VIM"
+EDITOR="NVIM"
 # export TERMINAL="alacritty"
 
 export PATH="$HOME/.cargo/bin:$PATH"
 export LANG="de_DE.UTF8"
+export SHELL="/usr/bin/zsh"

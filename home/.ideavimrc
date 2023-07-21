@@ -1,4 +1,3 @@
-source .vim/settings.vim
 noremap <leader>y "+y
 noremap <leader>p "+p
 noremap <leader>P "+P
