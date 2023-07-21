@@ -1,0 +1,11 @@
+session_name: 'dev'
+start_directory: ./
+windows:
+  - window_name: Dotfiles
+    layout: main-vertical
+    main-pane-width: 160
+    options: {}
+    panes:
+      - nvim
+      - top
+      - null

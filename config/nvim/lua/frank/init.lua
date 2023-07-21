@@ -7,9 +7,9 @@ function ColorWithTransparentBG(color)
 	color = color or "onedark"
 	vim.cmd.colorscheme(color)
 
-	vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
-	vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
-	vim.api.nvim_set_hl(0, "EndOfBuffer", { bg = "none" })
+	-- vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+	-- vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+	-- vim.api.nvim_set_hl(0, "EndOfBuffer", { bg = "none" })
 end
 
 ColorWithTransparentBG()
@@ -150,4 +150,21 @@ require('indent_blankline').setup {
     -- show_trailing_blankline_indent = false,
 }
 
+--local lspconfig = require 'lspconfig'
+--local configs = require 'lspconfig.configs'
+
+-- Manual add rust_hdl server
+--if not configs.rust_hdl then
+--  configs.rust_hdl = {
+--    default_config = {
+--      cmd = {'vhdl_ls'},
+--      filetypes = { "vhdl", 'vhd' },
+--      root_dir = lspconfig.util.root_pattern(unpack({'vhdl_ls.toml','.vhdl_ls.toml'})),
+--      single_file_support = true,
+--      settings = {};
+--    },
+--  }
+--end
 --require('Comment').setup()
+require'lspconfig'.vhdl_ls.setup{}
+

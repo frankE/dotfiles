@@ -35,6 +35,7 @@ return require('packer').startup(function(use)
   use 'mbbill/undotree'
   use 'tpope/vim-sleuth'
   use 'tpope/vim-fugitive'
+  use 'kg8m/vim-simple-align'
   use {
     'VonHeikemen/lsp-zero.nvim',
     branch = 'v1.x',
@@ -43,21 +44,22 @@ return require('packer').startup(function(use)
       {'neovim/nvim-lspconfig'},             -- Required
       {'williamboman/mason.nvim'},           -- Optional
       {'williamboman/mason-lspconfig.nvim'}, -- Optional
-  
-      -- Autocompletion
-      {'hrsh7th/nvim-cmp'},         -- Required
-      {'hrsh7th/cmp-nvim-lsp'},     -- Required
-      {'hrsh7th/cmp-buffer'},       -- Optional
-      {'hrsh7th/cmp-path'},         -- Optional
-      {'saadparwaiz1/cmp_luasnip'}, -- Optional
-      {'hrsh7th/cmp-nvim-lua'},     -- Optional
-  
-      -- Snippets
-      {'L3MON4D3/LuaSnip'},             -- Required
-      {'rafamadriz/friendly-snippets'}, -- Optional
+      
+                                             -- Autocompletion
+      {'hrsh7th/nvim-cmp'},                  -- Required
+      {'hrsh7th/cmp-nvim-lsp'},              -- Required
+      {'hrsh7th/cmp-buffer'},                -- Optional
+      {'hrsh7th/cmp-path'},                  -- Optional
+      {'saadparwaiz1/cmp_luasnip'},          -- Optional
+      {'hrsh7th/cmp-nvim-lua'},              -- Optional
+      
+                                             -- Snippets
+      {'L3MON4D3/LuaSnip'},                  -- Required
+      {'rafamadriz/friendly-snippets'},      -- Optional
     }
   }
-
+  use 'https://github.com/mfussenegger/nvim-dap'
+  use 'https://github.com/rcarriga/nvim-dap-ui'
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if packer_bootstrap then
