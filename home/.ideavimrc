@@ -1,4 +1,22 @@
-noremap <leader>y "+y
-noremap <leader>p "+p
-noremap <leader>P "+P
-vnoremap <space>/ :action CommentByLineComment<CR>
+let mapleader=" "
+set number relativenumber
+set scrolloff=5
+set ignorecase
+set smartcase
+set incsearch
+set hlsearch
+
+set ideaput
+set ideajoin
+set ideamarks
+set ideawrite=file
+
+map <leader>y "+y
+map <leader>p "+p
+map <leader><CR> :nohls<CR>
+map <leader>b <Action>(ToggleLineBreakpoint)
+map <leader>r <Action>(RenameElement)
+vmap <leader>/ <Action>(CommentByLineComment)
+map <leader>/ <Action>(CommentByLineComment)
+set quickscope
+let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
