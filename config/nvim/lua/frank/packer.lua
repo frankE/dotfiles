@@ -38,13 +38,12 @@ return require('packer').startup(function(use)
   use 'kg8m/vim-simple-align'
   use {
     'VonHeikemen/lsp-zero.nvim',
-    branch = 'v1.x',
+    branch = 'v3.x',
     requires = {
       -- LSP Support
       {'neovim/nvim-lspconfig'},             -- Required
       {'williamboman/mason.nvim'},           -- Optional
       {'williamboman/mason-lspconfig.nvim'}, -- Optional
-      
                                              -- Autocompletion
       {'hrsh7th/nvim-cmp'},                  -- Required
       {'hrsh7th/cmp-nvim-lsp'},              -- Required
@@ -52,14 +51,19 @@ return require('packer').startup(function(use)
       {'hrsh7th/cmp-path'},                  -- Optional
       {'saadparwaiz1/cmp_luasnip'},          -- Optional
       {'hrsh7th/cmp-nvim-lua'},              -- Optional
-      
                                              -- Snippets
       {'L3MON4D3/LuaSnip'},                  -- Required
       {'rafamadriz/friendly-snippets'},      -- Optional
     }
   }
+  -- Debug Adapter Protocol
   use 'https://github.com/mfussenegger/nvim-dap'
   use 'https://github.com/rcarriga/nvim-dap-ui'
+  use "jay-babu/mason-nvim-dap.nvim"
+  -- Debugging
+  --use 'nvim-lua/plenary.nvim'
+  use {'mrcjkb/rustaceanvim', version = '^3', ft = { 'rust' }, }
+
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if packer_bootstrap then

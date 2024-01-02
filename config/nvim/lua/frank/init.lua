@@ -18,46 +18,98 @@ ColorWithTransparentBG()
 vim.keymap.set("n", "<leader>gs", vim.cmd.Git)
 
 -- lsp-zero
-local lsp = require('lsp-zero').preset({
-    name = 'recommended',
-    set_lsp_keymaps = true,
-    manage_nvim_cmp = true,
-    suggest_lsp_servers = true,
+
+require("mason").setup()
+require("mason-lspconfig").setup()
+
+local lsp_zero = require('lsp-zero')
+
+lsp_zero.set_sign_icons({
+  error = '✘',
+  warn = '▲',
+  hint = '⚑',
+  info = ''
 })
 
-lsp.ensure_installed({
-    'intelephense',
+vim.diagnostic.config({
+  virtual_text = false,
+  severity_sort = true,
+  float = {
+    style = 'minimal',
+    border = 'rounded',
+    source = 'always',
+    header = '',
+    prefix = '',
+  },
 })
-
--- lsp.skip_server_setup({'rust_analyzer'})
--- pass arguments to a language server
--- see :help lsp-zero.configure()
-lsp.skip_server_setup({'intelephense'})
---lsp.skip_server_setup({'phpactor'})
-lsp.configure('intelephense', {
-  on_attach = function(client, bufnr)
-  end,
-  settings = {
-      intelephense = {
-          files = {
-              maxSize = 1024 * 200
-          },
-          environment = {
-              phpVersion = "7.4.0",
-              includePaths = {
-                  "/home/frank/src/sepia/sbs3/"
-              }
-          }
-      }
+require('mason').setup({})
+require('mason-lspconfig').setup({
+  handlers = {
+    lsp_zero.default_setup,
   }
 })
--- (Optional) Configure lua language server for neovim
-lsp.nvim_workspace({
-    library = vim.api.nvim_get_runtime_file('', true)
+
+local lua_opts = lsp_zero.nvim_lua_ls()
+require('lspconfig').lua_ls.setup(lua_opts)
+
+require('mason-lspconfig').setup({
+  ensure_installed = {'rust_analyzer'},
 })
 
-lsp.setup()
+-- lsp_zero.nvim_workspace({
+--     library = vim.api.nvim_get_runtime_file('', true)
+-- })
+-- 
+lsp_zero.on_attach(function(client, bufnr)
+  -- see :help lsp-zero-keybindings
+  -- to learn the available actions
+  lsp_zero.default_keymaps({buffer = bufnr})
+end)
 
+local cmp = require('cmp')
+local cmp_action = require('lsp-zero').cmp_action()
+local cmp_format = require('lsp-zero').cmp_format()
+require('luasnip.loaders.from_vscode').lazy_load()
+vim.opt.completeopt = {'menu', 'menuone', 'noselect'}
+
+cmp.setup({
+  formatting = cmp_format,
+  preselect = 'item',
+  completion = {
+    completeopt = 'menu,menuone,noinsert',
+  },
+  window = {
+    documentation = cmp.config.window.bordered(),
+  },
+  mapping = cmp.mapping.preset.insert({
+    -- confirm completion item
+    ['<CR>'] = cmp.mapping.confirm({select = false}),
+
+    -- toggle completion menu
+    ['<C-e>'] = cmp_action.toggle_completion(),
+
+    -- tab complete
+    ['<Tab>'] = cmp_action.tab_complete(),
+    ['<S-Tab>'] = cmp.mapping.select_prev_item(),
+
+    -- navigate between snippet placeholder
+    ['<C-d>'] = cmp_action.luasnip_jump_forward(),
+    ['<C-b>'] = cmp_action.luasnip_jump_backward(),
+
+    -- scroll documentation window
+    ['<C-f>'] = cmp.mapping.scroll_docs(-1),
+    ['<C-d>'] = cmp.mapping.scroll_docs(1),
+  }),
+  sources = {
+    {name = 'path'},
+    {name = 'nvim_lsp'},
+    {name = 'nvim_lua'},
+    {name = 'buffer', keyword_length = 3},
+    {name = 'luasnip', keyword_length = 2},
+  },
+})
+
+--
 vim.diagnostic.config({
   virtual_text = true,
   signs = true,
@@ -94,8 +146,8 @@ vim.keymap.set('n', '<leader>fd', builtin.diagnostics, {})
 --vim.keymap.set('n', '<leader>fw', builtin.grep_string, {})
 vim.keymap.set('n', '<leader>fl', builtin.live_grep, {})
 vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
-vim.keymap.set('n', '<leader>fb', builtin.current_buffer_fuzzy_find, {})
-vim.keymap.set('n', '<leader>fr',  function()
+vim.keymap.set('n', '<leader>/', builtin.current_buffer_fuzzy_find, {})
+vim.keymap.set('n', '<leader>fg',  function()
 	builtin.grep_string({ search = vim.fn.input("Grep > ") });
 end)
 
@@ -142,13 +194,16 @@ require'nvim-treesitter.configs'.setup {
   },
 }
 
+-- mason-nvim-dap
+require("mason-nvim-dap").setup()
+local dapui = require("dapui")
+dapui.setup()
+
 -- Undotree
 vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
 
 -- indent-blank blank line
-require('indent_blankline').setup {
-    -- show_trailing_blankline_indent = false,
-}
+require "ibl".setup({ scope = { show_start = false }})
 
 --local lspconfig = require 'lspconfig'
 --local configs = require 'lspconfig.configs'
@@ -167,4 +222,85 @@ require('indent_blankline').setup {
 --end
 --require('Comment').setup()
 require'lspconfig'.vhdl_ls.setup{}
+local dap = require('dap')
+-- dap.adapters.lldb = {
+--   type = 'executable',
+--   command = '', -- adjust as needed, must be absolute path
+--   name = 'lldb'
+-- }
+-- 
+-- dap.configurations.rust = {
+--   {
+--     name = 'Launch',
+--     type = 'lldb',
+--     request = 'launch',
+--     program = function()
+--       return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
+--     end,
+--     cwd = '${workspaceFolder}',
+--     stopOnEntry = false,
+--     args = {},
+-- 
+--     -- 💀
+--     -- if you change `runInTerminal` to true, you might need to change the yama/ptrace_scope setting:
+--     --
+--     --    echo 0 | sudo tee /proc/sys/kernel/yama/ptrace_scope
+--     --
+--     -- Otherwise you might get the following error:
+--     --
+--     --    Error on launch: Failed to attach to the target process
+--     --
+--     -- But you should be aware of the implications:
+--     -- https://www.kernel.org/doc/html/latest/admin-guide/LSM/Yama.html
+--     -- runInTerminal = false,
+--     initCommands = function()
+--       -- Find out where to look for the pretty printer Python module
+--       local rustc_sysroot = vim.fn.trim(vim.fn.system('rustc --print sysroot'))
+-- 
+--       local script_import = 'command script import "' .. rustc_sysroot .. '/lib/rustlib/etc/lldb_lookup.py"'
+--       local commands_file = rustc_sysroot .. '/lib/rustlib/etc/lldb_commands'
+-- 
+--       local commands = {}
+--       local file = io.open(commands_file, 'r')
+--       if file then
+--         for line in file:lines() do
+--           table.insert(commands, line)
+--         end
+--         file:close()
+--       end
+--       table.insert(commands, 1, script_import)
+-- 
+--       return commands
+--     end,
+--     -- ...,
+--   }
+-- }
 
+vim.fn.sign_define('DapBreakpoint', { text = '🐞' })
+
+-- Start debugging session
+vim.keymap.set("n", "<leader>ds", function()
+  -- require('rustaceanvim.dap').start({workspaceRoot = vim.fn.getcwd(), cargoArgs = {}, cargoExtraArgs = {}})
+  dapui.toggle({})
+  vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<C-w>=", false, true, true), "n", false) -- Spaces buffers evenly
+end)
+
+-- Set breakpoints, get variable values, step into/out of functions, etc.
+vim.keymap.set("n", "<leader>dl", require("dap.ui.widgets").hover)
+vim.keymap.set("n", "<leader>dc", dap.continue)
+vim.keymap.set("n", "<leader>db", dap.toggle_breakpoint)
+vim.keymap.set("n", "<leader>dn", dap.step_over)
+vim.keymap.set("n", "<leader>di", dap.step_into)
+vim.keymap.set("n", "<leader>do", dap.step_out)
+vim.keymap.set("n", "<leader>dC", function()
+  dap.clear_breakpoints()
+  require("notify")("Breakpoints cleared", "warn")
+end)
+-- 
+---- Close debugger and clear breakpoints
+vim.keymap.set("n", "<leader>de", function()
+  dap.clear_breakpoints()
+  dapui.toggle({})
+  dap.terminate()
+  vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<C-w>=", false, true, true), "n", false)
+end)
