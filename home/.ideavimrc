@@ -14,7 +14,10 @@ set ideawrite=file
 map <leader>y "+y
 map <leader>p "+p
 map <leader><CR> :nohls<CR>
-map <leader>b <Action>(ToggleLineBreakpoint)
+map <leader>db <Action>(ToggleLineBreakpoint)
+map <leader>dn <Action>(DebugStepNext)
+map <leader>dn <Action>(DebugStepInto)
+map <leader>dc <Action>(DebugContinue)
 map <leader>r <Action>(RenameElement)
 vmap <leader>/ <Action>(CommentByLineComment)
 map <leader>/ <Action>(CommentByLineComment)
