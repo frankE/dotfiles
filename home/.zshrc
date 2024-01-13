@@ -105,7 +105,7 @@ function cl {
 }
 
 # Editor environment variables
-export EDITOR="vim"
+export EDITOR="nvim"
 export USE_EDITOR=$EDITOR
 export VISUAL=$EDITOR
 
