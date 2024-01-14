@@ -15,9 +15,12 @@ map <leader>y "+y
 map <leader>p "+p
 map <leader><CR> :nohls<CR>
 map <leader>db <Action>(ToggleLineBreakpoint)
-map <leader>dn <Action>(DebugStepNext)
-map <leader>dn <Action>(DebugStepInto)
-map <leader>dc <Action>(DebugContinue)
+map <leader>dn <Action>(StepOver)
+map <leader>di <Action>(StepInto)
+map <leader>do <Action>(StepOut)
+map <leader>dc <Action>(Resume)
+map <leader>de <Action>(Stop)
+map <leader>k <Action>(QuickEvaluateExpression)
 map <leader>r <Action>(RenameElement)
 vmap <leader>/ <Action>(CommentByLineComment)
 map <leader>/ <Action>(CommentByLineComment)
