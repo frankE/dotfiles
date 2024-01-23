@@ -7,6 +7,7 @@
 # sudo dnf install python3-pyyaml
 # sudo dnf install fzf
 # sudo dnf install openssh-askpass
+# sudo dnf install hyprland swaylock swayidle
 #
 # # interception-tools (caps2esc)
 # sudo dnf copr enable fszymanski/interception-tools
