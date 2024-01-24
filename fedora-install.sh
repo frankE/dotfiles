@@ -29,3 +29,5 @@
 # tar -C ~/.local/bin -xaf ~/.local/bin/starship.tar.gz
 # rm ~/.local/bin/starship.tar.gz
 
+# ln -s config/hypr/desktop.conf config/hypr/local.conf # OR
+# ln -s config/hypr/laptop.conf config/hypr/local.conf
