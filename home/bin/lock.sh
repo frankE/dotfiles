@@ -1,7 +1,12 @@
 #!/usr/bin/env bash
-grim -o $(hyprctl -j monitors | jq -r '.[] | select(.focused) | .name') /tmp/screen.png
-
-convert /tmp/screen.png -scale 25% -blur 0x4 -scale 400% -fill black -colorize 50% /tmp/screen.png
-[[ -f $1 ]] && convert /tmp/screen.png $1 -gravity center -composite -matte /tmp/screen.png
-
-swaylock -s fill -i /tmp/screen.png
+LOCKCMD='swaylock -s fill -c 000000'
+IMAGES=''
+hyprctl -j monitors | jq -r '.[] | select(.focused) |.name' | ( while read line ; do
+    grim -o "$line" "/tmp/$line.png"
+    convert "/tmp/$line.png" -scale 25% -blur 0x4 -scale 400% -fill black -colorize 50% "/tmp/$line.png"
+    [[ -f $1 ]] && convert "/tmp/$line.png" $1 -gravity center -composite -matte "/tmp/$line.png"
+    IMAGES="$IMAGES -i \"$line\":\"/tmp/$line.png\""
+done
+CMD="$LOCKCMD $IMAGES"
+echo $CMD
+$CMD )
