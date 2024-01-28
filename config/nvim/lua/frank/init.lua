@@ -3,6 +3,14 @@ require("frank.set")
 require("frank.remap")
 
 -- colorscheme
+-- Lua
+require('onedark').setup {
+  colors = {
+    green = "#eeeeee",
+  },
+  style = 'darker'
+}
+require('onedark').load()
 function ColorWithTransparentBG(color)
 	color = color or "onedark"
 	vim.cmd.colorscheme(color)
