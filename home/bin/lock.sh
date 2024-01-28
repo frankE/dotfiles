@@ -8,5 +8,4 @@ hyprctl -j monitors | jq -r '.[] | select(.focused) |.name' | ( while read line 
     IMAGES="$IMAGES -i \"$line\":\"/tmp/$line.png\""
 done
 CMD="$LOCKCMD $IMAGES"
-echo $CMD
 $CMD )
