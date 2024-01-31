@@ -1,19 +1,9 @@
-@define-color base00 #181818;
-@define-color base01 #2b2e37;
-@define-color base02 #3b3e47;
-@define-color base03 #585858;
-@define-color base04 #b8b8b8;
-@define-color base05 #d8d8d8;
-@define-color base06 #e8e8e8;
-@define-color base07 #f8f8f8;
-@define-color base08 #ab4642;
-@define-color base09 #dc9656;
-@define-color base0A #f7ca88;
-@define-color base0B #a1b56c;
-@define-color base0C #86c1b9;
-@define-color base0D #7cafc2;
-@define-color base0E #ba8baf;
-@define-color base0F #a16946;
+@define-color bg @theme_base_color;
+@define-color fg @theme_text_color;
+@define-color buttonbg shade(@theme_base_color, 1.25);
+@define-color highlightbg shade(@theme_text_color, 0.75);
+@define-color highlightfg shade(@theme_base_color, 0.75);
+@define-color urgentfg #de1111;
 
 * {
   transition: none;
@@ -21,11 +11,11 @@
 }
 
 #waybar {
-	font-family: 'Source Code Pro', sans-serif;
-	font-size: 1em;
-	font-weight: 400;
-  color: @base04;
-  background: @base01;
+    font-family: 'Source Code Pro', sans-serif;
+    font-size: 1em;
+    font-weight: 400;
+    color: @theme_text_color;
+    background: @theme_base_color;
 }
 
 #workspaces {
@@ -35,7 +25,6 @@
 #workspaces button {
   margin: 4px 0;
   padding: 0 4px;
-  color: @base05;
 }
 
 #workspaces button.visible {
@@ -43,17 +32,17 @@
 
 #workspaces button.active {
   border-radius: 4px;
-  background-color: @base02;
+  background-color: @highlightbg;
+  color: @highlightfg;
 }
 
 #workspaces button.urgent {
-  color: rgba(238, 46, 36, 1);
+  color: @urgentfg;
 }
 
 #tray {
   margin: 4px 4px 4px 4px;
   border-radius: 4px;
-  background-color: @base02;
 }
 
 #tray * {
@@ -65,20 +54,12 @@
   border-left: none;
 }
 
-#mode, #battery, #cpu, #memory, #network, #pulseaudio, #idle_inhibitor, #backlight, #custom-storage, #custom-updates, #custom-weather, #custom-mail, #clock, #temperature {
+#mode, #battery, #cpu, #memory, #network, #pulseaudio, #idle_inhibitor, #backlight, #custom-storage, #custom-updates, #custom-weather, #custom-mail, #clock, #temperature, #custom-playercontrol {
   margin: 4px 2px;
   padding: 0 6px;
-  background-color: @base02;
+  background-color: @buttonbg;
   border-radius: 4px;
   min-width: 20px;
-}
-
-#pulseaudio.muted {
-  color: @base0F;
-}
-
-#pulseaudio.bluetooth {
-  color: @base0C;
 }
 
 #clock {
@@ -88,7 +69,7 @@
 }
 
 #temperature.critical {
-  color: @base0F;
+  color: @urgentfg;
 }
 
 #window {
