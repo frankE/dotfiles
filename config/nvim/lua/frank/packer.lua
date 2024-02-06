@@ -63,7 +63,13 @@ return require('packer').startup(function(use)
   -- Debugging
   --use 'nvim-lua/plenary.nvim'
   use {'mrcjkb/rustaceanvim', version = '^3', ft = { 'rust' }, }
-
+  -- code error list
+  use {
+    'folke/trouble.nvim',
+    requires = {
+      { 'nvim-tree/nvim-web-devicons' },
+    }
+}
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if packer_bootstrap then

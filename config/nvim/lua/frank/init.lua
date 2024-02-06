@@ -220,6 +220,17 @@ require "ibl".setup({ scope = { show_start = false }})
 --require('Comment').setup()
 require'lspconfig'.vhdl_ls.setup{}
 local dap = require('dap')
+
+
+-- the following settins assume you've installed the vscode-debug-php adapter using mason.nvim
+dap.adapters.php = {
+  type = "executable",
+  command = "node",
+  args = {
+    vim.loop.os_homedir() .. "/.local/share/nvim/mason/packages/php-debug-adapter/extension/out/phpDebug.js",
+  },
+}
+require("dap.ext.vscode").load_launchjs(vim.fn.getcwd() .. "/.nvim/launch.json", {})
 -- dap.adapters.lldb = {
 --   type = 'executable',
 --   command = '', -- adjust as needed, must be absolute path
