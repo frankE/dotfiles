@@ -182,6 +182,7 @@
         "return-type": "text",
         "interval": 36000,
         "exec": "~/.config/waybar/checkupdates.sh 2>/dev/null",
-        "on-click": "~/.config/waybar/checkupdates.sh 2>/dev/null"
+        "on-click": "pkill -SIGRTMIN+1 waybar",
+        "signal": 1
     }
 }
