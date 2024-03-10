@@ -6,7 +6,7 @@ builtin="eDP-1"
 
 hyprctl dispatch movetoworkspacesilent,1 jetbrains-phpstorm
 hyprctl dispatch movetoworkspacesilent,1 firefox
-hyprctl dispatch movetoworkspacesilent,1 mattermost
+hyprctl dispatch movetoworkspacesilent,1 Mattermost
 hyprctl dispatch movetoworkspacesilent,1 gnome-terminal-server
 hyprctl dispatch movetoworkspacesilent,2 thunderbird 
 hyprctl dispatch movetoworkspacesilent,2 org.keepassxs.KeePassXC
