@@ -1,4 +1,4 @@
-#timeout 300 '~/bin/lock.sh'
+timeout 300 'swaylock'
 timeout 450 'hyprctl dispatch -- dpms off' resume 'hyprctl dispatch -- dpms on'
-before-sleep '~/bin/lock.sh'
+before-sleep 'swaylock'
 timeout 600 'systemctl suspend'
