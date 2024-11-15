@@ -7,7 +7,7 @@
 # sudo dnf install python3-pyyaml
 # sudo dnf install fzf
 # sudo dnf install openssh-askpass
-# sudo dnf install hyprland swaylock swayidle waybar udiskie rofi-wayland
+# sudo dnf install hyprland hypridle hyprlock waybar udiskie rofi-wayland
 #
 # # interception-tools (caps2esc)
 # sudo dnf copr enable fszymanski/interception-tools

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 bigScreen="desc:BNQ BenQ EW3270U Y1K00197019"
-smallScreen="desc:LG Electronics 24EA53"
+smallScreen="desc:LG Electronics 24EA53 0x01010101"
 builtin="eDP-1"
 
 hyprctl dispatch movetoworkspacesilent 1,firefox
