@@ -6,6 +6,7 @@
 # sudo dnf install python3-fabric
 # sudo dnf install python3-pyyaml
 # sudo dnf install fzf
+# sudo dnf install kitty
 # sudo dnf install openssh-askpass
 # sudo dnf install hyprland hypridle hyprlock waybar udiskie rofi-wayland
 #
