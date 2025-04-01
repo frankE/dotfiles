@@ -1,0 +1,18 @@
+#!/usr/bin/bash
+
+NAME=$1.nvim-session
+NVIM=/usr/bin/nvim
+TERMINAL=/usr/bin/kitty
+unset LD_LIBRARY_PATH
+
+FILE=$2
+
+cd $(dirname $FILE)
+shift 2
+
+if [ -e $XDG_RUNTIME_DIR/$NAME ]; then
+    $TERMINAL -- $NVIM --server $XDG_RUNTIME_DIR/$NAME --remote $@ $FILE
+else
+    $TERMINAL -- $NVIM --listen $XDG_RUNTIME_DIR/$NAME $@ $FILE
+fi
+

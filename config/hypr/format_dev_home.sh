@@ -3,14 +3,13 @@
 bigScreen="desc:Samsung Electric Company C49RG9x HNTR200541"
 builtin="eDP-1"
 
-hyprctl dispatch movetoworkspacesilent,1 firefox
-hyprctl dispatch movetoworkspacesilent,1 jetbrains-phpstorm
-hyprctl dispatch movetoworkspacesilent,1 gnome-terminal-server
-hyprctl dispatch movetoworkspacesilent,1 mattermost
-hyprctl dispatch movetoworkspacesilent,2 thunderbird 
-hyprctl dispatch movetoworkspacesilent,2 org.keepassxs.KeePassXC
-hyprctl dispatch movetoworkspacesilent,4 Spotify
-hyprctl dispatch movetoworkspacesilent,6 discord
+hyprctl dispatch movetoworkspacesilent 1,class:org.mozilla.firefox
+hyprctl dispatch movetoworkspacesilent 1,class:kitty
+hyprctl dispatch movetoworkspacesilent 1,class:mattermost
+hyprctl dispatch movetoworkspacesilent 2,class:net.thunderbird.Thunderbird
+hyprctl dispatch movetoworkspacesilent 2,class:org.keepassxc.KeePassXC
+hyprctl dispatch movetoworkspacesilent 4,class:Spotify
+hyprctl dispatch movetoworkspacesilent 6,class:discord
 
 hyprctl dispatch moveworkspacetomonitor 1 1
 hyprctl dispatch moveworkspacetomonitor 2 1

@@ -128,3 +128,5 @@ if [ -x "$(command -v starship)" ]; then
     eval "$(starship init zsh)" fi
 fi
 export SHELL=/usr/bin/zsh
+
+export QSYS_ROOTDIR="/home/frank/intelFPGA_lite/23.1std/quartus/sopc_builder/bin"

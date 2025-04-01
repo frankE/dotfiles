@@ -22,4 +22,7 @@ EXPORT EDITOR="nvim"
 # export TERMINAL="alacritty"
 
 export PATH="$HOME/.cargo/bin:$PATH"
+export PATH="/opt/android/cmdline-tools/bin:$PATH"
 export LANG="de_DE.UTF8"
+
+export QSYS_ROOTDIR="/home/frank/intelFPGA_lite/23.1std/quartus/sopc_builder/bin"
