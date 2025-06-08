@@ -178,8 +178,8 @@
         "escape": true
     },
     "custom/updates": {
-        "format": "{} {icon}",
-        "return-type": "text",
+        "format": "{}",
+        "return-type": "json",
         "interval": 36000,
         "exec": "~/.config/waybar/checkupdates.sh 2>/dev/null",
         "on-click": "pkill -SIGRTMIN+1 waybar",
