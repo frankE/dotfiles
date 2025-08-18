@@ -88,10 +88,10 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # Use exa if it's installed
-if [ -x "$(command -v exa)" ]; then
-    alias ll='exa -lahgF'
-    alias la='exa -lah'
-    alias l='exa -lahgF'
+if [ -x "$(command -v eza)" ]; then
+    alias ll='eza -labhgF'
+    alias la='eza -labh'
+    alias l='eza -labhgF'
 else
     alias ll='ls -lahF'
     alias l='ls -laF'
@@ -129,4 +129,4 @@ if [ -x "$(command -v starship)" ]; then
 fi
 export SHELL=/usr/bin/zsh
 
-export QSYS_ROOTDIR="/home/frank/intelFPGA_lite/23.1std/quartus/sopc_builder/bin"
+export QSYS_ROOTDIR="/home/frank/intelFPGA_lite/22.1std/quartus/sopc_builder/bin"
