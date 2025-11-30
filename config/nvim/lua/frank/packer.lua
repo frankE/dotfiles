@@ -34,6 +34,7 @@ return require('packer').startup(function(use)
   use 'nvim-lualine/lualine.nvim'
   use 'lukas-reineke/indent-blankline.nvim'
   use 'mbbill/undotree'
+  use 'vimwiki/vimwiki'
   use 'tpope/vim-sleuth'
   use 'tpope/vim-fugitive'
   use 'kg8m/vim-simple-align'

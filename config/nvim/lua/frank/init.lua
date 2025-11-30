@@ -28,6 +28,16 @@ lsp_zero.set_sign_icons({
   info = ''
 })
 
+-- VimWiki
+-- vim.g.vimwiki_list = {
+--   {
+--     path = '~/vimwiki/',
+--     syntax = 'markdown',
+--     ext = 'md'
+--   }
+-- }
+-- vim.g.vimwiki_global_ext = 0
+
 vim.diagnostic.config({
   virtual_text = false,
   severity_sort = true,
@@ -315,3 +325,5 @@ vim.keymap.set("n", "<leader>de", function()
   dap.terminate()
   -- vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<C-w>=", false, true, true), "n", false)
 end)
+vim.opt.spell = true
+vim.opt.spelllang = {'de', 'en'}
