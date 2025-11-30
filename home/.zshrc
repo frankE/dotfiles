@@ -125,7 +125,7 @@ export LANG="de_DE.UTF8"
 export DOCKER_HOST=unix:///run/user/1000/podman/podman.sock
 
 if [ -x "$(command -v starship)" ]; then
-    eval "$(starship init zsh)" fi
+    eval "$(starship init zsh)" 
 fi
 export SHELL=/usr/bin/zsh
 
