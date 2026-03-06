@@ -44,7 +44,7 @@ vim.diagnostic.config({
   float = {
     style = 'minimal',
     border = 'rounded',
-    source = 'always',
+    source = true,
     header = '',
     prefix = '',
   },
@@ -57,7 +57,7 @@ require('mason-lspconfig').setup({
 })
 
 local lua_opts = lsp_zero.nvim_lua_ls()
-require('lspconfig').lua_ls.setup(lua_opts)
+vim.lsp.config('lua_ls', lua_opts)
 
 require('mason-lspconfig').setup({
   ensure_installed = {'rust_analyzer'},
@@ -127,7 +127,7 @@ vim.diagnostic.config({
     focusable = false,
     style = 'minimal',
     border = 'rounded',
-    source = 'always',
+    source = true,
     header = '',
     prefix = '',
   },
@@ -228,7 +228,7 @@ require "ibl".setup({ scope = { show_start = false }})
 --  }
 --end
 --require('Comment').setup()
-require'lspconfig'.vhdl_ls.setup{}
+vim.lsp.enable('vhdl_ls')
 local dap = require('dap')
 
 
@@ -240,7 +240,7 @@ dap.adapters.php = {
     vim.loop.os_homedir() .. "/.local/share/nvim/mason/packages/php-debug-adapter/extension/out/phpDebug.js",
   },
 }
-require("dap.ext.vscode").load_launchjs(vim.fn.getcwd() .. "/.nvim/launch.json", {})
+-- require("dap.ext.vscode").load_launchjs(vim.fn.getcwd() .. "/.nvim/launch.json", {})
 -- dap.adapters.lldb = {
 --   type = 'executable',
 --   command = '', -- adjust as needed, must be absolute path
