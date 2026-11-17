@@ -8,12 +8,6 @@ local smallScreen = "desc:LG Electronics 24EA53"
 local builtin     = "eDP-1"
 
 -- monitor=NAME,RESOLUTION,POSITION,SCALE  ->  hl.monitor({ output, mode, position, scale })
-hl.monitor({
-    output   = "desc:Samsung Electric Company C49RG9x HNTR200541",
-    mode     = "5120x1440",
-    position = "0x0",
-    scale    = 1,
-})
 
 hl.monitor({
     output   = bigScreen,
@@ -25,14 +19,14 @@ hl.monitor({
 hl.monitor({
     output   = smallScreen,
     mode     = "preferred", -- was "prefferred" (typo) in the .conf
-    position = "3840x540",
+    position = "-1960x540",
     scale    = 1,
 })
 
 hl.monitor({
     output   = builtin,
     mode     = "preferred", -- was "preffered" (typo) in the .conf
-    position = "-1920x540",
+    position = "3840x960",
     scale    = 1,
 })
 

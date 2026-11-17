@@ -13,4 +13,4 @@ hyprctl dispatch 'hl.dsp.window.move({ workspace = 6, follow = false, window = "
 for ws in 1 2 3 4; do
     hyprctl dispatch "hl.dsp.workspace.move({ workspace = $ws, monitor = 1 })"
 done
-hyprctl dispatch "hl.dsp.workspace.move({ workspace = $ws, monitor = 2 })"
+hyprctl dispatch "hl.dsp.workspace.move({ workspace = 6, monitor = 0 })"

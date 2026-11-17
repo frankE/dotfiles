@@ -15,13 +15,14 @@ require("local")
 -- hl.exec_cmd() spawns asynchronously, so no trailing `&` is needed.
 hl.on("hyprland.start", function()
     hl.exec_cmd("systemctl --user start xdg-desktop-portal-hyprland.service")
-    hl.exec_cmd("waybar")
+    hl.exec_cmd("/home/frank/src/vendor/Waybar/build/waybar")
     hl.exec_cmd("udiskie") -- Automounter for removable media
     hl.exec_cmd("hypridle")
     hl.exec_cmd("mako")
     hl.exec_cmd("hyprpaper")
     hl.exec_cmd("dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP")
 end)
+
 
 -------------------------------
 ---- ENVIRONMENT VARIABLES ----
@@ -121,12 +122,14 @@ hl.animation({ leaf = "workspaces",  enabled = true, speed = 6,  bezier = "defau
 -- hl.window_rule({
 --     name = "flameshot",
 --     match = { class = "^(flameshot)$" },
+--     border_size = 0,
 --     float = true,
---     no_anim = true,
 --     pin = true,
---     fullscreen = true,
+--     -- fullscreen = true,
+--     fullscreen_state = "0 0",
 --     move = "0 0",
---     -- monitor = 1,  -- set to your leftmost monitor
+--     monitor = 1,  -- set to your leftmost monitor
+--     size = "5760 1200"
 -- })
 
 ---------------------
@@ -134,8 +137,8 @@ hl.animation({ leaf = "workspaces",  enabled = true, speed = 6,  bezier = "defau
 ---------------------
 
 -- Screenshots
-hl.bind("Print", hl.dsp.exec_cmd("flameshot gui"))
-
+-- hl.bind("Print", hl.dsp.exec_cmd("flameshot gui"))
+hl.bind("Print", hl.dsp.exec_cmd('grim - | satty -f - --copy-command wl-copy -o "~/Pictures/Screenshots/%Y%m%d_%H%M%S.png"'))
 hl.bind(mainMod .. " + ESCAPE", hl.dsp.exec_cmd("pidof hyprlock || hyprlock"))
 hl.bind(mainMod .. " + A", hl.dsp.exec_cmd("~/.config/hypr/home.sh"))
 hl.bind(mainMod .. " + R", hl.dsp.exec_cmd("~/.config/hypr/format_dev_home.sh"))
